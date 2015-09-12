@@ -19,6 +19,10 @@ Route::post('oauth/access_token', function() {
     return Response::json(Authorizer::issueAccessToken());
 });
 
+Route::get('oauth/validate_token', ['middleware' => 'oauth', function() {
+  return Response::json(Authorizer::getResourceOwnerId());
+}]);
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
