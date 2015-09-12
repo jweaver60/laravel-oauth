@@ -20,7 +20,7 @@ Route::post('oauth/access_token', function() {
 });
 
 Route::get('oauth/validate_token', ['middleware' => 'oauth', function() {
-  return Response::json(Authorizer::getResourceOwnerId());
+    return Response::json(Authorizer::getResourceOwnerId());
 }]);
 
 // Authentication routes...
